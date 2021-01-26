@@ -165,13 +165,13 @@ class Stars(Problem):
     def goal_test(self, state):
         return len(state[-1]) == 0
 
+    
     def h(self, node):
-        kx = node.state[0]
-        ky = node.state[1]
-        bx = node.state[2]
-        by = node.state[3]
+        state = node.state[4]
+        x = len(state)
 
-        stars = node.state[4]
+        return x
+
 
 
 

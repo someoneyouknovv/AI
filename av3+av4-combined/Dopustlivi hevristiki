@@ -1,9 +1,16 @@
-Podvizhni prepreki :
+Podvizhni prepreki : #toshka
     def h(self, node):
         state = node.state[0]
         return abs(state[0] - self.goal[0]) + abs(state[1] - self.goal[1])
         
-Diskovi(labs):
+Crno belo: #toshka
+    def h(self, node):
+        state = node.state
+        x = state.count('0')
+        # print(node, " count - ", x)
+        return x
+        
+Diskovi(labs): #petar
     def h(self, node):
         sum = 0
         for x, y in zip(node.state, self.goal):
@@ -11,7 +18,7 @@ Diskovi(labs):
                 sum += 1
         return sum
 
-Pacman(labs):
+Pacman(labs): #petar
 @staticmethod
     def mhd(pac_cor, dot_cor):
         return abs(pac_cor[0] - dot_cor[0]) + abs(pac_cor[1] - dot_cor[1])

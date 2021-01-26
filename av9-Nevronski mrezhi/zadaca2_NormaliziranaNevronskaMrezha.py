@@ -82,7 +82,7 @@ if __name__ == '__main__':
             if pred == true:
                 tp +=1
             else:
-                fp +=1
+                fn +=1
 
         else:
             if pred == true:

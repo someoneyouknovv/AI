@@ -1,0 +1,34 @@
+Podvizhni prepreki :
+    def h(self, node):
+        state = node.state[0]
+        return abs(state[0] - self.goal[0]) + abs(state[1] - self.goal[1])
+        
+Diskovi(labs):
+    def h(self, node):
+        sum = 0
+        for x, y in zip(node.state, self.goal):
+            if x!=y:
+                sum += 1
+        return sum
+
+Pacman(labs):
+@staticmethod
+    def mhd(pac_cor, dot_cor):
+        return abs(pac_cor[0] - dot_cor[0]) + abs(pac_cor[1] - dot_cor[1])
+
+    def h(self, node):
+        sum = 0
+        pac_y = node.state[1]
+        pac_x = node.state[2]
+        tmp_dict = dict()
+
+        for y, x in node.state[3]:
+            tmp = Pacman.mhd((pac_y, pac_x), (y, x))
+            tmp_dict[y, x] = tmp
+
+        tmp_dict = sorted(tmp_dict.items(), key=lambda kv: (kv[1], kv[0]))
+        if len(tmp_dict) != 0:
+            sum += tmp_dict[0][1]
+        return sum
+        
+        
